@@ -1,7 +1,7 @@
 # SnowyResizer
 2KB framework to load last window's size for electron.
 
-This library is handling window size of last launch and setup this values as initial.
+This library is handling window size of last launch and setup this values as initial.  
 NeDB package is require. Link to npm => https://www.npmjs.com/package/nedb
 
 ## Example of usage in main process

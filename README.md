@@ -57,7 +57,7 @@ SnowyResizer.resizeCallHandler("mainWindow", ipcRenderer);
 ## Syntax
 ```javascript
 //Object declaration
-const variableName = new SnowyResizer("window as string", windowObject, nedbInstance);
+const variableName = new SnowyResizer("window as string", windowObject, NeDBInstance);
 //Example: 
 const mainWindowResizer = new SnowyResizer("mainWindow", mainWindow, db);
 

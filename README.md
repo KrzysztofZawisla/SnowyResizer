@@ -1,7 +1,7 @@
 # SnowyResizer
 2KB framework to load last Windows size for electron.
 
-## Usage in main process
+## Example of usage in main process
 ```javascript
 const electron = require("electron");
 const url = require("url");

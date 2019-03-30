@@ -29,8 +29,8 @@ app.on("ready", () => {
     minWidth: 500
   });
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
+    pathname: path.join(__dirname, "index.html"),
+    protocol: "file:",
     slashes: true
   }));
   const mainWindowResizer = new SnowyResizer("mainWindow", mainWindow, db);

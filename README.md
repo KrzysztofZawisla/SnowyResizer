@@ -34,7 +34,6 @@ app.on("ready", () => {
   mainWindow.on("ready-to-show", () => {
     mainWindowResizer.resizeHandler();
     mainWindow.show();
-    mainWindow.webContents.openDevTools();
   });
   mainWindow.on("closed", () => {
     app.quit();

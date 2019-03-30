@@ -40,3 +40,21 @@ app.on("ready", () => {
   });
 });
 ```
+
+## Syntax
+```javascript
+//Object declaration
+const variableName = new SnowyResizer("window as string", windowObject, nedbInstance);
+//Example: 
+const mainWindowResizer = new SnowyResizer("mainWindow", mainWindow, db);
+
+// Executeing size handling function in main process
+variableName.resizeHandler();
+//Example:
+mainWindowResizer.resizeHandler();
+
+//Executeing size handling function in renderer process
+SnowyResizer.resizeCallHandler("window as string", ipcRenderer);
+//Example:
+SnowyResizer.resizeCallHandler("mainWindow", ipcRenderer);
+```

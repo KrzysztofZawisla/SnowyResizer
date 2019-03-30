@@ -43,6 +43,16 @@ app.on("ready", () => {
 });
 ```
 
+## Example of usage in renderer process
+```javascript
+const SnowyResizer = require("./snowyresizer");
+const electron = require("electron");
+
+const { ipcRenderer } = electron;
+
+SnowyResizer.resizeCallHandler("mainWindow", ipcRenderer);
+```
+
 ## Syntax
 ```javascript
 //Object declaration

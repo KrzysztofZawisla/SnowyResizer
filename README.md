@@ -7,7 +7,7 @@ const electron = require("electron");
 const url = require("url");
 const path = require("path");
 const Datastore = require("nedb");
-const SnowyResizer = require("./snowyResizer");
+const SnowyResizer = require("./snowyresizer");
 
 const { app, BrowserWindow } = electron;
 

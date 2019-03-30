@@ -1,5 +1,7 @@
 # SnowyResizer
-2KB framework to load last Windows size for electron.
+2KB framework to load last window's size for electron.
+
+This library is handling window size of last launch and setup this values as initial.
 
 ## Example of usage in main process
 ```javascript

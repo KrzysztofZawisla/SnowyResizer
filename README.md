@@ -4,6 +4,16 @@
 This library is handling window size of last launch and setup this values as initial.  
 NeDB package is require. Link to npm => https://www.npmjs.com/package/nedb
 
+## Installation
+To install SnowyResizer:
+```
+npm i snowyresizer
+```
+To install NeDB:
+```
+npm i nedb
+```
+
 ## Example of usage in main process
 ```javascript
 const electron = require("electron");

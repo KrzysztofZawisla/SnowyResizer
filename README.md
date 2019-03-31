@@ -61,7 +61,7 @@ const variableName = new SnowyResizer("window as string", windowObject, NeDBInst
 //Example: 
 const mainWindowResizer = new SnowyResizer("mainWindow", mainWindow, db);
 
-// Executing size handling function in main process
+//Executing size handling function in main process
 variableName.resizeHandler();
 //Example:
 mainWindowResizer.resizeHandler();

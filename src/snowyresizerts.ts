@@ -16,40 +16,32 @@ class SnowyResizer {
       this.screenSizeValue = null;
    }
    public resizeHandler():void {
-      try {
-         this.db.find({ name: this.name }, (err, docs) => {
-            if (docs == "") {
-               this.db.insert({ name: this.name, width: this.width, height: this.height, fullscreen: this.fullscreen });
+      this.db.find({ name: this.name }, (err, docs) => {
+         if (docs == "") {
+            this.db.insert({ name: this.name, width: this.width, height: this.height, fullscreen: this.fullscreen });
+         } else {
+            this.fullscreen = docs[0].fullscreen;
+            this.width = docs[0].width;
+            this.height = docs[0].height;
+            if (this.fullscreen === true) {
+               this.windowObject.maximize();
             } else {
-               this.fullscreen = docs[0].fullscreen;
-               this.width = docs[0].width;
-               this.height = docs[0].height;
-               if (this.fullscreen === true) {
-                  this.windowObject.maximize();
-               } else {
-                  this.windowObject.webContents.send(this.name, this.width, this.height);
-               }
+               this.windowObject.webContents.send(this.name, this.width, this.height);
             }
-         });
-         this.windowObject.on("resize", () => {
-            this.screenSizeValue = this.windowObject.getSize();
-            this.width = this.screenSizeValue[0];
-            this.height = this.screenSizeValue[1];
-            this.fullscreen = this.windowObject.isMaximized();
-            this.db.update({ name: this.name }, { $set: { width: this.width, height: this.height, fullscreen: this.fullscreen } });
-         });
-      } catch(err) {
-         console.log(err);
-      }
+         }
+      });
+      this.windowObject.on("resize", () => {
+         this.screenSizeValue = this.windowObject.getSize();
+         this.width = this.screenSizeValue[0];
+         this.height = this.screenSizeValue[1];
+         this.fullscreen = this.windowObject.isMaximized();
+         this.db.update({ name: this.name }, { $set: { width: this.width, height: this.height, fullscreen: this.fullscreen } });
+      });
    }
    public static resizeCallHandler(name:string, ipcRenderer:any):void {
-      try {
-         ipcRenderer.on(name, (e, width:number, height:number) => {
-            window.resizeTo(width, height);
-         });
-      } catch(err) {
-         console.log(err);
-      }
+      ipcRenderer.on(name, (e, width:number, height:number) => {
+         window.resizeTo(width, height);
+      });
    }
 }
 

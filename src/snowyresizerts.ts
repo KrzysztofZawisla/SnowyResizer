@@ -1,12 +1,12 @@
 class SnowyResizer {
    private name:string;
-   private windowObject:any;
-   private db:any;
+   private windowObject:Object;
+   private db:Object;
    private width:number;
    private height:number;
    private fullscreen:boolean;
    private screenSizeValue:[number, number];
-   constructor(name:string, windowObject:any, db:any) {
+   constructor(name:string, windowObject:Object, db:Object) {
       this.name = name;
       this.windowObject = windowObject;
       this.db = db;
@@ -38,7 +38,7 @@ class SnowyResizer {
          this.db.update({ name: this.name }, { $set: { width: this.width, height: this.height, fullscreen: this.fullscreen } });
       });
    }
-   public static resizeCallHandler(name:string, ipcRenderer:any):void {
+   public static resizeCallHandler(name:string, ipcRenderer:Object):void {
       ipcRenderer.on(name, (e, width:number, height:number) => {
          window.resizeTo(width, height);
       });
